@@ -1,0 +1,82 @@
+create database fly1;
+use fly1;
+create table flight(fid varchar(255),Fname varchar(255),source varchar(255),destination varchar(255),total_no_of_seats integer,booked integer,available integer,primary key(fid));
+
+
+insert into flight(fid,Fname,source,destination,total_no_of_seats,available,booked) values ("f_001","Flight_1","Hyderabad","goa",100,30,70);
+
+
+insert into flight(fid,Fname,source,destination,total_no_of_seats,available,booked) values ("f_002","Flight_2","Hyderabad","mumbai",100,20,80);
+
+
+insert into flight(fid,Fname,source,destination,total_no_of_seats,available,booked) values ("f_003","Flight_3","Hyderabad","us",100,40,60);
+
+
+select *from flight;
+   
+
+
++-------+----------+-----------+-------------+-------------------+--------+-----------+
+| fid   | Fname    | source    | destination | total_no_of_seats | booked | available |
++-------+----------+-----------+-------------+-------------------+--------+-----------+
+| f_001 | Flight_1 | Hyderabad | goa         |               100 |     70 |        30 |
+| f_002 | Flight_2 | Hyderabad | mumbai      |               100 |     80 |        20 |
+| f_003 | Flight_3 | Hyderabad | us          |               100 |     60 |        40 |
++-------+----------+-----------+-------------+-------------------+--------+-----------+
+
+
+create table Passangers(P_id integer,p_name varchar(255),mobile_no integer,no_of_bookings integer,primary key(P_id));
+
+
+insert into Passangers(P_id, p_name,mobile_no,no_of_bookings) values (100,"Bhanu", 1233345, 2);
+
+
+insert into Passangers(P_id, p_name,mobile_no,no_of_bookings) values (101,"Dhurga", 1233342, 1);
+
+
+insert into Passangers(P_id, p_name,mobile_no,no_of_bookings) values (102,"Hema", 1233342, 3);
+
+
+mysql> select *from Passangers;
++------+--------+-----------+----------------+
+| P_id | p_name | mobile_no | no_of_bookings |
++------+--------+-----------+----------------+
+|  100 | Bhanu  |   1233345 |              2 |
+|  101 | Dhurga |   1233342 |              1 |
+|  102 | Hema   |   1233342 |              3 |
++------+--------+-----------+----------------+
+
+
+CREATE TABLE `booking`(`booking_id` int(11) NOT NULL,`booking_user_id` varchar(255) NOT NULL,`booking_route_id` varchar(255) NOT NULL,`booking_date` varchar(255) NOT NULL,`booking_total_fare` varchar(255) NOT NULL, `booking journey_date` varchar(255)
+
+NOT NULL,`booking_seat_type` varchar(255) NOT NULL,`booking_status` varchar(255) NOT NULL DEFAULT '0' );
+
+
+
+
+CREATE TABLE `passengar` (`passengar_id` int(11) NOT NULL, `passengar_booking_id` varchar(255) NOT NULL, passengar_type` varchar(255) NOT NULL,`passengar_name` varchar(255) NOT NULL,
+`passengar_gender` varchar(255) NOT NULL,`passengar_age` varchar(255) NOT NULL,passengar_seat_no varchar(255) NOT NULL);
+
+
+
+//ticket cancellation
+create table Aticket_cancellation(pass_id int,pass_name varchar(50),date_of_cancel varchar(50),time_of_cancel varchar(50),cancel_ticket varchar(50),fair_amount int,refund_amount int,charges_amount int);
+insert into Aticket_cancellation values
+(1,'Rahul','13-aug-2021','18:00','yes',10000,8500,1500),
+(2,'Mahesh','11-sep-2021','12:00','yes',21000,19000,2000),
+(3,'Nikhitha','13-09-2021','9:00','no',5600,0000,5600)
+
+select * from Aticket_cancellation;
+select cancel_ticket from Aticket_cancellation;
+
+//ticket booking
+
+create table pass_air(pass_id int,pass_name varchar(50),pass_sou varchar(50),pass_des varchar(50),date_of_booking varchar(50),time_of_booking varchar(50),amount int);
+insert into pass_air values
+(1,'Rahul','hyderabad','vizag','12-oct-2021','18:00',10000),
+(2,'Mahesh','chennai','hyderabad','11-sep-2021','12:00',12347),
+(3,'Nikhitha','Amritsar','vizag','13-09-2021','9:00',15674)
+
+select * from pass_air;
+
+
